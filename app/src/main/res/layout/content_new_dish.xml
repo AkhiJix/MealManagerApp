@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".NewDishActivity"
+    tools:showIn="@layout/activity_new_dish">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/addImagBtn"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="addRecipeImage"
+            android:text="Add Image"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/recipe_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Ingreds_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="8sp"
+            android:text="Ingredients"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:typeface="sans"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_name" />
+
+        <AutoCompleteTextView
+            android:id="@+id/newIngred"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Ingredient"
+            android:inputType="textPersonName|textCapWords"
+            app:layout_constraintEnd_toStartOf="@+id/quantity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ingreds_text" />
+
+        <Button
+            android:id="@+id/addToListBtn"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Add"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/unit_qty"
+            app:layout_constraintTop_toBottomOf="@+id/Ingreds_text" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="507dp"
+            android:layout_marginTop="70dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="@id/cl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ingreds_text"
+            app:layout_constraintVertical_bias="1.0">
+
+            <ListView
+                android:id="@+id/listIngred"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newIngred" />
+        </android.support.v4.widget.NestedScrollView>
+
+        <EditText
+            android:id="@+id/instructions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:maxLength="250"
+            android:gravity="top|left"
+            android:hint="Enter Recipe Instructions..."
+            android:lines="20"
+            android:minLines="6"
+            android:scrollbars="vertical"
+            android:inputType="textNoSuggestions|textVisiblePassword|textMultiLine"
+            android:singleLine="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Qty"
+            android:inputType="number"
+            app:layout_constraintEnd_toStartOf="@+id/unit_qty"
+            app:layout_constraintStart_toEndOf="@+id/newIngred"
+            app:layout_constraintTop_toBottomOf="@+id/Ingreds_text" />
+
+        <EditText
+            android:id="@+id/recipe_name"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:hint="Enter Recipe Name"
+            android:inputType="textPersonName|textCapWords"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/addImagBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/unit_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Unit"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/addToListBtn"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/quantity"
+            app:layout_constraintTop_toBottomOf="@+id/Ingreds_text" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="8sp"
+            android:text="Instructions"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:typeface="sans"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/instructions"
+            app:layout_constraintStart_toStartOf="@+id/nestedScrollView"
+            app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
