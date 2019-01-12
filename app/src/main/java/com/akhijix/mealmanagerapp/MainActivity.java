@@ -18,22 +18,12 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView popup;
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        popup = (ImageView) findViewById(R.id.imageView);
-        popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(MainActivity.this, Popup.class));
-            }
-        });
     }
 
     @Override
@@ -59,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewDish(View view) {
-        //Intent intent = new Intent(getApplicationContext(),NewDishActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(),NewDishActivity.class);
+        startActivity(intent);
     }
 
     public void createGroceryList(View view) {
-        //Intent intent = new Intent(getApplicationContext(),GroceriesActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(),GroceriesActivity.class);
+        startActivity(intent);
     }
 
     public void createRecipe(View view) {
